@@ -16,6 +16,16 @@ namespace MoodAnalyserTest
             expected.Equals(obj);
             Assert.AreNotEqual(expected, obj);
 
+
+        }
+	[TestMethod]
+        [ExpectedException(typeof(MoodAnalyserCustomException))]
+        public void GivenMoodNull_ShouldThrowException()
+        {
+            MoodAnalyser obj = new MoodAnalyser(null);
+            string result = obj.analyseMood();
+            Assert.AreEqual("123", result);
+
         }
 
       }
