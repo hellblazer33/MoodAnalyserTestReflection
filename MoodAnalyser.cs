@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace MoodAnalyzer
 {
     public class MoodAnalyser
-    {						//UC1
+    {
         private string message;
         public MoodAnalyser(string message)
         {
@@ -23,8 +23,11 @@ namespace MoodAnalyzer
 
             //string abc = "";
             try
-            {   //"null"==""
-              
+            {   //"null"==""						//UC2
+                if (this.message.Equals(string.Empty))
+                {
+                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.EMPTY_MESSAGE, "Mood should not be empty");
+                }
                 if (this.message.Contains("sad"))
                     return "SAD";
                 else
@@ -34,8 +37,9 @@ namespace MoodAnalyzer
             {
                 //throw new Exception(obj.Message);
 
- 	    }
-            
+         
+            }
+            return null;
         }
     }
 
