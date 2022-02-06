@@ -23,7 +23,7 @@ namespace MoodAnalyzer
 
             //string abc = "";
             try
-            {   //"null"==""						//UC2
+            {   //"null"==""
                 if (this.message.Equals(string.Empty))
                 {
                     throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.EMPTY_MESSAGE, "Mood should not be empty");
@@ -37,7 +37,7 @@ namespace MoodAnalyzer
             {
                 //throw new Exception(obj.Message);
 
-         
+                throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NULL_MESSAGE, "Mood should not be null");     //UC3 
             }
             return null;
         }
